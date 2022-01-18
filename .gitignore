@@ -1,0 +1,28 @@
+# Cmake Files
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+# Build artifacts
+*.hex
+*.bin
+*.elf
+build/
+out/
+output/
+*.o
+*.map
+build_log.txt
+
+# VScode settings
+.vscode/*cortex-debug*
+.vscode/settings.json
+.vscode/*_properties.json

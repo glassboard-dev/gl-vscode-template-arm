@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+    {
+        "name": "Debug MICRO_PN",
+        "type": "cortex-debug",
+        "request": "launch",
+        "servertype":"pyocd",
+        "cwd": "${workspaceRoot}",
+        "executable": "./output/debug/PROJECT_BINARY.elf",
+        "device": "MICRO_PN_FROM_PYOCD",
+        "runToMain": true,
+        "v1": false,
+        "serverArgs": [
+            "--target",
+            "MICRO_PN_FROM_PYOCD"
+        ]
+    }]
+}

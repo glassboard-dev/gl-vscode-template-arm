@@ -1,0 +1,48 @@
+name: Release - Build, Tag and Upload artifacts
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Download GNU ARM embedded toolchain
+      run: >-
+        wget --no-check-certificate -O ~/gcc_toolchain.tar.bz2
+        'https://developer.arm.com/-/media/Files/downloads/gnu-rm/10-2020q4/gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz'
+
+    - name: Extract the toolchain
+      run: |
+        tar -xjf ~/gcc_toolchain.tar.bz2 -C ~/
+
+    - name: Setup & Build - RELEASE
+      run: |
+        export PATH=$PATH:~/gcc-arm-none-eabi-10-2020-q4-major/bin
+        ./setup.sh release
+        cd build && make -j8
+
+    - name: Setup & Build - DEBUG
+      run: |
+        export PATH=$PATH:~/gcc-arm-none-eabi-10-2020-q4-major/bin
+        ./setup.sh
+        cd build && make -j8
+
+    - name: Extract Firmware Version
+      run: |
+        echo "VERSION_MAJOR=$(cat src/version.h | grep VERSION_MAJOR | awk '{print $3}')" >> $GITHUB_ENV
+        echo "VERSION_MINOR=$(cat src/version.h | grep VERSION_MINOR | awk '{print $3}')" >> $GITHUB_ENV
+        echo "VERSION_PATCH=$(cat src/version.h | grep VERSION_PATCH | awk '{print $3}')" >> $GITHUB_ENV
+
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "output/release/*.bin,output/release/*.hex,
+                    output/debug/*.bin,output/debug/*.hex"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        tag: ${{env.VERSION_MAJOR}}.${{env.VERSION_MINOR}}.${{env.VERSION_PATCH}}

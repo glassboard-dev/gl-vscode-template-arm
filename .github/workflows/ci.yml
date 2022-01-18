@@ -1,0 +1,49 @@
+name: CI - Compile & Test
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Install Ruby & Ceedling
+      run:  |
+        sudo apt-get install ruby
+        sudo gem install ceedling
+        sudo python -m pip install gcovr
+
+    - name: Download GNU ARM embedded toolchain
+      run: >-
+        wget --no-check-certificate -O ~/gcc_toolchain.tar.bz2
+        'https://developer.arm.com/-/media/Files/downloads/gnu-rm/10-2020q4/gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz'
+
+    - name: Extract the toolchain
+      run: tar -xjf ~/gcc_toolchain.tar.bz2 -C ~/
+
+    - name: Setup & Build - RELEASE
+      run: |
+        export PATH=$PATH:~/gcc-arm-none-eabi-10-2020-q4-major/bin
+        ./setup.sh release
+        cd build && make -j8
+
+    - name: Setup & Build - DEBUG
+      run: |
+        export PATH=$PATH:~/gcc-arm-none-eabi-10-2020-q4-major/bin
+        ./setup.sh
+        cd build && make -j8
+
+    - name: Run Unit tests
+      run: cd build && make test
+
+    - uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_REPO_TOKEN }}
+        files: ./build/artifacts/gcov/GcovCoverageCobertura.xml
+        fail_ci_if_error: true # optional (default = false)
+        verbose: true # optional (default = false)
