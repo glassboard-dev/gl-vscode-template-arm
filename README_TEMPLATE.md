@@ -11,7 +11,7 @@ At a minium you will need the ARM GNU GCC Toolchain, Make and CMake to compile t
 To flash and debug the target this project uses a couple of different tools. PyOCD is used for the programming/debugging medium, and a VScode extension called Cortex-Debug gives a user interface within VScode for stepping through the source, settings breakpoints and viewing registers/variables within the target.
 -   [PyOCD](https://github.com/pyocd/pyOCD#installing)
 -   [VScode](https://code.visualstudio.com/)
--   [ARM Developer Toolkit Expansion Pack](https://marketplace.visualstudio.com/items?itemName=Glasslabs.arm-developer-toolkit)
+-   [ARM Developer Extension Pack for VScode](https://marketplace.visualstudio.com/items?itemName=Glasslabs.arm-developer-toolkit)
 
 To write and execute unit tests on the firmware source, you will need to install the Ceedling unit test framework and the Python package gcovr to generate Cobertura html reports. Ceedling is a Ruby Gem, so Ruby must first be installed on your system. GCC and Make are also needed. If the developer is on Windows, you can find install instructions above.
 -   [Ruby](https://www.ruby-lang.org)
