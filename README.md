@@ -17,7 +17,7 @@ At first clone, you should ensure that you have all of the tools installed for y
 - [ ] **project.yml**
     - [ ] Update/add any project specific defines needed for compilation of test cases - This likely includes a macro defining the mico PN (Search for CPU_DEFINE_PN)
 - [ ] **CMakeLists.txt**
-    - [ ] Update the CMake variables for your specific project, MCU, sources, etc. All of the user settings that need updating are located at the top of the file. A complete list is below. DO NOT EDIT ANYTHING BELOW THESE CONFIGURATION VARIABLES - If a gap or issue is found, please report back [here]{https://github.com/glassboard-dev/gl-arm-vscode-template/issues} so accomodations can be made for the missing config.
+    - [ ] Update the CMake variables for your specific project, MCU, sources, etc. All of the user settings that need updating are located at the top of the file. A complete list is below. DO NOT EDIT ANYTHING BELOW THESE CONFIGURATION VARIABLES - If a gap or issue is found, please report back [here](https://github.com/glassboard-dev/gl-arm-vscode-template/issues) so accomodations can be made for the missing config.
         - [ ] PROJECT_NAME
         - [ ] EXECUTABLE_NAME
         - [ ] PYOCD_MCU_TARGET
@@ -29,7 +29,6 @@ At first clone, you should ensure that you have all of the tools installed for y
         - [ ] APP_SRC
         - [ ] SDK_SRC
         - [ ] INCLUDE_DIRS
-    - [ ] Update the ```-T``` linker option for your specific linker file
 - [ ] **README_TEMPLATE**
     - [ ] Update the PROJECT_NAME in the header to your project name
     - [ ] Add project specific software or hardware setup instructions
