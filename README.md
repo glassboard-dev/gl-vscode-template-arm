@@ -1,5 +1,6 @@
-# New repo checklist
-At first clone, you should ensure that you have all of the tools installed for your OS as detailed in the Software section of the [README_TEMPLATE](./README_TEMPLATE.md) file. After initially cloning this repo, run through each folder/file and ensure the following tasks are compeleted.
+# VSCode ARM Core Project Template
+At first clone, you should ensure that you have all of the tools installed for your OS as detailed in the Software section of the [README_TEMPLATE](./README_TEMPLATE.md) file. After initially cloning this repo, run through each folder/file and ensure the following tasks are completed.
+## New repo checklist
 - [ ] **.vscode/launch.json**
     - [ ] Update launch configuration for your specific micro and binary names. Your micro name can be found using the pyocd list command - ```pyocd list --targets```
 - [ ] **doc**
