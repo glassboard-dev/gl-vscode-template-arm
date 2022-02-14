@@ -42,6 +42,11 @@ set(INCLUDE_DIRS    ${CMAKE_CURRENT_SOURCE_DIR}/src/
                     ${CMAKE_CURRENT_SOURCE_DIR}/src/board
 )
 
+# Add any subdirectories with CMake projects that should be added
+set(CMAKE_SUBDIRS
+    # ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glasslabs/DAC757x
+)
+
 #####################################################################################
 # End of project and CPU specific items - DO NOT EDIT ANYTING BELOW THIS POINT
 #####################################################################################
@@ -92,6 +97,11 @@ endif()
 if(CMAKE_BUILD_TYPE STREQUAL release)
     target_compile_definitions(${EXECUTABLE_NAME} PUBLIC ${RELEASE_BUILD_DEFINITIONS})
 endif()
+
+# Add all of our CMake Subdirectories
+foreach(subdir ${CMAKE_SUBDIRS})
+    add_subdirectory(${subdir})
+endforeach()
 
 # Extract the current firmware version
 file(READ ${CMAKE_CURRENT_SOURCE_DIR}/src/version.h ver)
