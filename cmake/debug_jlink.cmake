@@ -37,6 +37,29 @@ write_file(${CMAKE_CURRENT_SOURCE_DIR}/.vscode/launch.json
         \t\t\"serverArgs\": [\n
             \t\t\t\"--target\",\n
             \t\t\t\"${MCU_TARGET}\"\n
-        \t\t]\n
-    \t}]\n
-})
+        \t\t],
+)
+
+if(${ENABLE_SEGGER_RTT})
+
+write_file(${CMAKE_CURRENT_SOURCE_DIR}/.vscode/launch.json
+\t\t"rttConfig":{\n
+    \t\t\t"enabled":true,\n
+    \t\t\t"address":"auto",\n
+    \t\t\t"decoders":[{\n
+    \t\t\t\t"port":0,\n
+    \t\t\t\t"type":"console"\n
+    \t\t\t}]\n
+\t\t}\n
+\t}]\n
+}
+APPEND)
+
+else()
+
+write_file(${CMAKE_CURRENT_SOURCE_DIR}/.vscode/launch.json
+\t}]\n
+}
+APPEND)
+
+endif()

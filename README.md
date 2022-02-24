@@ -31,6 +31,7 @@ At first clone, you should ensure that you have all of the tools installed for y
         - [ ] PROJECT_NAME
         - [ ] EXECUTABLE_NAME
         - [ ] DEBUG_TOOLSET
+        - [ ] ENABLE_SEGGER_RTT
         - [ ] MCU_TARGET
         - [ ] COMPILER_CPU_FLAGS
         - [ ] LINKER_STATIC_LIBRARIES
