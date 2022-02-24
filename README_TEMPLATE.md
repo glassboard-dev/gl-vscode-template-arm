@@ -8,10 +8,13 @@ At a minium you will need the ARM GNU GCC Toolchain, Make and CMake to compile t
 -   Make -  Make is shipped with Linux and should already be present on the developers system. If the developer is running Windows they can either use WSL to run a Linux instance or install Make on Windows via [MinGW](https://sourceforge.net/projects/mingw/)
 -   [CMake](https://cmake.org/download/)
 
-To flash and debug the target this project uses a couple of different tools. PyOCD is used for the programming/debugging medium, and a VScode extension called Cortex-Debug gives a user interface within VScode for stepping through the source, settings breakpoints and viewing registers/variables within the target.
+To flash and debug the target this project uses a couple of different tools. PyOCD or Segger JLink can be used as the programming/debugging medium, and a VScode extension called Cortex-Debug gives a user interface within VScode for stepping through the source, settings breakpoints and viewing registers/variables within the target.
 -   [PyOCD](https://github.com/pyocd/pyOCD#installing)
+-   [JLink](https://www.segger.com/downloads/jlink/)
 -   [VScode](https://code.visualstudio.com/)
 -   [ARM Developer Extension Pack for VScode](https://marketplace.visualstudio.com/items?itemName=Glasslabs.arm-developer-toolkit)
+
+***NOTE: After installing your desired debug toolset, please ensure the chosen application is accessible from the command line (pyocd or JLinkExe)***
 
 To write and execute unit tests on the firmware source, you will need to install the Ceedling unit test framework and the Python package gcovr to generate Cobertura html reports. Ceedling is a Ruby Gem, so Ruby must first be installed on your system. GCC and Make are also needed. If the developer is on Windows, you can find install instructions above.
 -   [Ruby](https://www.ruby-lang.org)

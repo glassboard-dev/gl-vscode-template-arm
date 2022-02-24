@@ -11,8 +11,8 @@ set(PROJECT_NAME "NEW_PROJECT")
 set(EXECUTABLE_NAME ${PROJECT_NAME})
 
 # Set your desired flash and debug toolset - Options are PYOCD (default) or JLINK
-# set(DEBUG_TOOLSET "PYOCD")
-set(DEBUG_TOOLSET "JLINK")
+set(DEBUG_TOOLSET "PYOCD")
+# set(DEBUG_TOOLSET "JLINK")
 
 # MCU Target name as seen in debug toolset
 set(MCU_TARGET LPC5526)
