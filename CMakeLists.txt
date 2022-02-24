@@ -11,12 +11,13 @@ set(PROJECT_NAME "NEW_PROJECT")
 set(EXECUTABLE_NAME ${PROJECT_NAME})
 
 # Set your desired flash and debug toolset - Options are PYOCD (default) or JLINK
-# set(DEBUG_TOOLSET "PYOCD")
-set(DEBUG_TOOLSET "JLINK")
+set(DEBUG_TOOLSET "PYOCD")
+# set(DEBUG_TOOLSET "JLINK")
 
 # Build in the Segger RTT library (set to true to include the Segger RTT library in the application)
 # Default configuration generated will output data to a console in ASCII format
-set(ENABLE_SEGGER_RTT true)
+# THIS OPTION IS ONLY SUPPORTED WITH THE JLINK TOOLSET
+set(ENABLE_SEGGER_RTT false)
 
 # MCU Target name as seen in debug toolset
 set(MCU_TARGET LPC5526)
@@ -115,7 +116,7 @@ if(ENABLE_SEGGER_RTT)
     set(INCLUDE_DIRS ${INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/vendor/segger/segger-rtt/RTT)
     # Add the segger-rtt subdirectory so CMake builds the lib
     set(CMAKE_SUBDIRS ${CMAKE_SUBDIRS} ${CMAKE_CURRENT_SOURCE_DIR}/vendor/segger/segger-rtt)
-    # Add the linker targer for the segger RTT static lib
+    # Add the linker target for the segger RTT static lib
     target_link_libraries(${EXECUTABLE_NAME} PRIVATE seggerRTT)
 endif()
 
