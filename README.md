@@ -24,7 +24,8 @@ At first clone, you should ensure that you have all of the tools installed for y
         :paths:
             :source:
                 - src/**
-
+- [ ] **cmake/flags.cmake**
+    - [ ] Add all of your needed C, C++ and assembly compiler and linker flags for both debug and release variants here. The current file is full of common and usefull flags for most ARM-Core targets
 - [ ] **CMakeLists.txt**
     - [ ] Update the CMake variables for your specific project, MCU, sources, etc. All of the user settings that need updating are located at the top of the file. A complete list is below. DO NOT EDIT ANYTHING BELOW THESE CONFIGURATION VARIABLES - If a gap or issue is found, please report back [here](https://github.com/glassboard-dev/gl-arm-vscode-template/issues) so accomodations can be made for the missing config.
         - [ ] PROJECT_NAME
