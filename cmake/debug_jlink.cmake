@@ -3,7 +3,6 @@ set(DEBUG_FLASH_CMD "JLinkExe" "-commanderscript" "${CMAKE_CURRENT_SOURCE_DIR}/F
 
 write_file(${CMAKE_CURRENT_SOURCE_DIR}/Erase.jlink
 "device ${MCU_TARGET}
-si 1
 speed 4000
 r
 erase
@@ -13,7 +12,6 @@ exit"
 
 write_file(${CMAKE_CURRENT_SOURCE_DIR}/Flash.jlink
 "device ${MCU_TARGET}
-si 1
 speed 4000
 r
 loadfile ${EXECUTABLE_OUTPUT_PATH}/${EXECUTABLE_NAME}.hex
