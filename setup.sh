@@ -9,13 +9,13 @@ then
     echo "Generating Makefile for DEBUG build"
     mkdir -p build
     cd build
-    cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE="../arm-gcc-toolchain.cmake" -DCMAKE_BUILD_TYPE=debug ..
+    cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE="../cmake/arm-gcc-toolchain.cmake" -DCMAKE_BUILD_TYPE=debug ..
 else
     # Generate a makefile for the Release variant
     echo "Generating Makefile for RELEASE build"
     mkdir -p build
     cd build
-    cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE="../arm-gcc-toolchain.cmake" -DCMAKE_BUILD_TYPE=release ..
+    cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE="../cmake/arm-gcc-toolchain.cmake" -DCMAKE_BUILD_TYPE=release ..
 fi;
 
 exit 0

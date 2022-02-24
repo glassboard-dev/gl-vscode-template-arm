@@ -8,13 +8,13 @@ if( $buildType -eq $null ) {
     Write-Output "Generating Makefile for DEBUG build"
     New-Item -Path './build' -ItemType Directory
     Set-Location './build'
-    cmake -G "MinGW Makefiles" -DCMAKE_TOOLCHAIN_FILE="../arm-gcc-toolchain.cmake" -DCMAKE_BUILD_TYPE=debug ..
+    cmake -G "MinGW Makefiles" -DCMAKE_TOOLCHAIN_FILE="../cmake/arm-gcc-toolchain.cmake" -DCMAKE_BUILD_TYPE=debug ..
 }
 else {
     Write-Output "Generating Makefile for RELEASE build"
     New-Item -Path './build' -ItemType Directory
     Set-Location './build'
-    cmake -G "MinGW Makefiles" -DCMAKE_TOOLCHAIN_FILE="../arm-gcc-toolchain.cmake" -DCMAKE_BUILD_TYPE=release ..
+    cmake -G "MinGW Makefiles" -DCMAKE_TOOLCHAIN_FILE="../cmake/arm-gcc-toolchain.cmake" -DCMAKE_BUILD_TYPE=release ..
 }
 
 exit 0
